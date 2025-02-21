@@ -8,18 +8,21 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 
 // https://github.com/rspack-contrib/rsbuild-plugin-styled-components
-import { pluginStyledComponents } from "@rsbuild/plugin-styled-components";
+import { pluginStyledComponents } from '@rsbuild/plugin-styled-components';
 
 export default defineConfig({
-  plugins: [pluginReact({
-    reactRefreshOptions: {
-      exclude: [/\.css\.ts$/],
-    },
-  }), 
-  pluginSvgr(), pluginStyledComponents({displayName:true})],
+  plugins: [
+    pluginReact({
+      reactRefreshOptions: {
+        exclude: [/\.css\.ts$/],
+      },
+    }),
+    pluginSvgr(),
+    pluginStyledComponents({ displayName: true }),
+  ],
   tools: {
     rspack: {
       plugins: [new VanillaExtractPlugin()],
     },
-  }
+  },
 });

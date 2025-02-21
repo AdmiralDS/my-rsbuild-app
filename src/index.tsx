@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-
 import { lightThemeClassName } from '@admiral-ds/web';
 import '@admiral-ds/fonts/VTBGroupUI.css';
 
@@ -12,7 +11,7 @@ if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
     <StrictMode>
-    <App className={lightThemeClassName} />
-  </StrictMode>,
+      <App className={lightThemeClassName} />
+    </StrictMode>,
   );
 }

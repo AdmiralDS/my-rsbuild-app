@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { vars } from '@admiral-ds/web';
+
 import styles from './button.module.css';
 
 // Импорт иконки как URL ресурс. Это дефолтное поведене для vite (https://vitejs.dev/guide/assets.html#importing-asset-as-url)
@@ -14,27 +16,13 @@ import reactLogo from './assets/react.svg';
 // Импорт иконки как готового реакт компонента (лоадер не требуется)
 // import { CategoryBusOutline } from '@admiral-ds/icons';
 
-import {
-  // Button,
-  textStyle,
-  FocusBox,
-  inputlineClassName,
-  panelClassName,
-  Menu,
-  MenuItem,
-  menuItemClassName,
-} from '@admiral-ds/web';
+import { FocusBox, inputlineClassName, textStyle } from '@admiral-ds/web';
 
 import { Button } from './components/Button';
 
-// import { panelClassName } from '@admiral-ds/web/dist/components/Panel/index.d.ts'
-console.log('panelClassName ', panelClassName)
-
-function App({className}) {
+function App({ className }: React.ComponentProps<'div'>) {
   const [count, setCount] = useState(0);
-
-
-
+  console.log(vars.color.Primary_Primary70);
   return (
     <div className={className}>
       <div>
@@ -48,17 +36,17 @@ function App({className}) {
       </div>
       <h1>Rsbuild + React</h1>
       <div className="card">
-          <FocusBox data-size="s">
-            <input
-              className={inputlineClassName}
-              onFocus={() => {
-                // setIsPopoverOpen(true);
-              }}
-              onBlur={() => {
-                // setIsPopoverOpen(true);
-              }}
-            />
-          </FocusBox>
+        <FocusBox data-size="s">
+          <input
+            className={inputlineClassName}
+            onFocus={() => {
+              // setIsPopoverOpen(true);
+            }}
+            onBlur={() => {
+              // setIsPopoverOpen(true);
+            }}
+          />
+        </FocusBox>
         <br />
         <br />
         <FocusBox data-size="m">
@@ -68,29 +56,7 @@ function App({className}) {
           <input className={inputlineClassName} />
         </FocusBox>
         <br />
-        <div className={panelClassName}>
-          <Menu data-size="l">
-            <MenuItem>Default</MenuItem>
-            <MenuItem aria-disabled>Default</MenuItem>
-            <MenuItem>Default</MenuItem>
-          </Menu>
-        </div>
-        <br />
-        <div className={panelClassName}>
-          <Menu>
-            <li className={menuItemClassName}>Default</li>
-            <li className={menuItemClassName}>Default</li>
-            <li className={menuItemClassName}>Default</li>
-          </Menu>
-        </div>
-        <br />
-        <div className={panelClassName}>
-          <Menu data-size="s">
-            <li className={menuItemClassName}>Default</li>
-            <li className={menuItemClassName}>Default</li>
-            <li className={menuItemClassName}>Default</li>
-          </Menu>
-        </div>
+
         <span className={textStyle['Subtitle/Subtitle 2']}>
           Крупный шрифт параграфа, может использоваться как подзаголовок
         </span>
@@ -109,8 +75,10 @@ function App({className}) {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </div>
   );
 }
 

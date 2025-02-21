@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import './button.css';
+import { hover } from './button.css.ts';
 import styles from './button.module.css';
-import { buttonHover } from './button.css.ts';
 
 export type ButtonProps = {
   /**
@@ -33,7 +33,13 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={['storybook-button', buttonHover, styles[size], mode, className].join(' ')}
+      className={[
+        'storybook-button',
+        hover,
+        styles[size],
+        mode,
+        className,
+      ].join(' ')}
       style={{ backgroundColor }}
       {...props}
     />

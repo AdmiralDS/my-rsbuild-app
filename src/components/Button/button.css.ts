@@ -1,8 +1,8 @@
-import { style, fallbackVar } from '@vanilla-extract/css';
-import { vars } from '@admiral-ds/web';
+import { style } from '@vanilla-extract/css';
+import { vars } from '../../theme/vars.css.ts';
 
-export const buttonHover = style({
+export const hover = style({
   ':hover': {
-    background: fallbackVar(vars.color.Primary_Primary70, '#0046E2'),
+    background: vars.color.Primary_Primary70,
   },
 });
