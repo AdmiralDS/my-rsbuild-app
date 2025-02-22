@@ -1,5 +1,5 @@
+import { vars } from '@admiral-ds/web';
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../theme/vars.css.ts';
 
 export const hover = style({
   ':hover': {
