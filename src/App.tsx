@@ -2,27 +2,30 @@ import { useState } from 'react';
 import './App.css';
 import { vars } from '@admiral-ds/web';
 
-import styles from './button.module.css';
-
 // Импорт иконки как URL ресурс. Это дефолтное поведене для vite (https://vitejs.dev/guide/assets.html#importing-asset-as-url)
 import reactLogo from './assets/react.svg';
 
 // Импорт оптимизированной иконки через настроенный SVGR лоадер (https://react-svgr.com/docs/what-is-svgr/)
-// import ArrowRightOutline from '@admiral-ds/icons/build/category/CreatePullRequestSolid.svg?react';
+import ArrowRightOutline from '@admiral-ds/icons/build/category/CreatePullRequestSolid.svg?react';
 
 // Импорт оригинала иконки через настроенный SVGR лоадер (https://react-svgr.com/docs/what-is-svgr/)
-// import BusSolid from '@admiral-ds/icons/public/icons/category/Bus Solid.svg?react';
+import BusSolid from '@admiral-ds/icons/public/icons/category/Bus Solid.svg?react';
 
 // Импорт иконки как готового реакт компонента (лоадер не требуется)
-// import { CategoryBusOutline } from '@admiral-ds/icons';
+import { CategoryBusOutline } from '@admiral-ds/icons';
 
 import { FocusBox, inputlineClassName, textStyle } from '@admiral-ds/web';
 
+import styled from 'styled-components';
 import { Button } from './components/Button';
+
+// не требуется использовать темизацию styled-components
+const NormalButton = styled(Button)`
+  border-radius: ${vars.borderRadius.Medium};
+`;
 
 function App({ className }: React.ComponentProps<'div'>) {
   const [count, setCount] = useState(0);
-  console.log(vars.color.Primary_Primary70);
   return (
     <div className={className}>
       <div>
@@ -48,6 +51,9 @@ function App({ className }: React.ComponentProps<'div'>) {
           />
         </FocusBox>
         <br />
+        <ArrowRightOutline width="24" height="24" />
+        <BusSolid />
+        <CategoryBusOutline width="24" height="24" />
         <br />
         <FocusBox data-size="m">
           <input className={inputlineClassName} />
@@ -62,7 +68,7 @@ function App({ className }: React.ComponentProps<'div'>) {
         </span>
 
         <br />
-        <Button
+        <NormalButton
           size="large"
           onClick={() => {
             setCount((count) => count + 1);
@@ -70,14 +76,12 @@ function App({ className }: React.ComponentProps<'div'>) {
           primary
         >
           count is {count}
-        </Button>
+        </NormalButton>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </div>
   );
 }
