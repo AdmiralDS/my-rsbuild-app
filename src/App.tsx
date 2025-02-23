@@ -6,7 +6,7 @@ import { vars } from '@admiral-ds/web';
 import reactLogo from './assets/react.svg';
 
 // Импорт оптимизированной иконки через настроенный SVGR лоадер (https://react-svgr.com/docs/what-is-svgr/)
-import ArrowRightOutline from '@admiral-ds/icons/build/category/CreatePullRequestSolid.svg?react';
+import CreatePullRequestSolid from '@admiral-ds/icons/build/category/CreatePullRequestSolid.svg?react';
 
 // Импорт оригинала иконки через настроенный SVGR лоадер (https://react-svgr.com/docs/what-is-svgr/)
 import BusSolid from '@admiral-ds/icons/public/icons/category/Bus Solid.svg?react';
@@ -26,6 +26,7 @@ const NormalButton = styled(Button)`
 
 function App({ className }: React.ComponentProps<'div'>) {
   const [count, setCount] = useState(0);
+
   return (
     <div className={className}>
       <div>
@@ -51,7 +52,7 @@ function App({ className }: React.ComponentProps<'div'>) {
           />
         </FocusBox>
         <br />
-        <ArrowRightOutline width="24" height="24" />
+        <CreatePullRequestSolid width="24" height="24" />
         <BusSolid />
         <CategoryBusOutline width="24" height="24" />
         <br />
