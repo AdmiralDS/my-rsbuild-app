@@ -14,14 +14,16 @@ import BusSolid from '@admiral-ds/icons/public/icons/category/Bus Solid.svg?reac
 // Импорт иконки как готового реакт компонента (лоадер не требуется)
 import { CategoryBusOutline } from '@admiral-ds/icons';
 
-import { FocusBox, inputlineClassName, textStyle } from '@admiral-ds/web';
+import { textStyle } from '@admiral-ds/web';
 
+import { Button } from '@admiral-ds/react-ui';
 import styled from 'styled-components';
-import { Button } from './components/Button';
-
+// import { Button as LocalButton } from './components/Button';
+// import { FocusBox, inputlineClassName } from './components/Input';
 // не требуется использовать темизацию styled-components
 const NormalButton = styled(Button)`
-  border-radius: ${vars.borderRadius.Medium};
+  border-radius: ${vars.borderRadius.Large};
+  background-color: var(--admiral-color-Primary_Primary50);
 `;
 
 function App({ className }: React.ComponentProps<'div'>) {
@@ -40,7 +42,7 @@ function App({ className }: React.ComponentProps<'div'>) {
       </div>
       <h1>Rsbuild + React</h1>
       <div className="card">
-        <FocusBox data-size="s">
+        {/* <FocusBox data-size="s">
           <input
             className={inputlineClassName}
             onFocus={() => {
@@ -50,18 +52,18 @@ function App({ className }: React.ComponentProps<'div'>) {
               // setIsPopoverOpen(true);
             }}
           />
-        </FocusBox>
+        </FocusBox> */}
         <br />
         <CreatePullRequestSolid width="24" height="24" />
         <BusSolid />
         <CategoryBusOutline width="24" height="24" />
         <br />
-        <FocusBox data-size="m">
+        {/* <FocusBox data-size="m">
           <input className={inputlineClassName} />
         </FocusBox>
         <FocusBox data-size="xl">
           <input className={inputlineClassName} />
-        </FocusBox>
+        </FocusBox> */}
         <br />
 
         <span className={textStyle['Subtitle/Subtitle 2']}>
@@ -70,14 +72,13 @@ function App({ className }: React.ComponentProps<'div'>) {
 
         <br />
         <NormalButton
-          size="large"
+          dimension="l"
           onClick={() => {
             setCount((count) => count + 1);
           }}
-          primary
-        >
-          count is {count}
-        </NormalButton>
+          appearance="primary"
+        >{`count is ${count}`}</NormalButton>
+        {/* <LocalButton>press me</LocalButton> */}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

@@ -1,9 +1,12 @@
 import { StrictMode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
 
+import { DARK_THEME, DropdownProvider, LIGHT_THEME } from '@admiral-ds/react-ui';
 import { darkThemeClassName, lightThemeClassName } from '@admiral-ds/web';
+import { ThemeProvider } from 'styled-components';
+
+import './index.css';
 import '@admiral-ds/fonts/VTBGroupUI.css';
 
 const Root = () => {
@@ -22,7 +25,11 @@ const Root = () => {
   }, []);
   return (
     <StrictMode>
-      <App className={isDark ? darkThemeClassName : lightThemeClassName} />
+      <ThemeProvider theme={isDark ? DARK_THEME : LIGHT_THEME}>
+        <DropdownProvider>
+          <App className={isDark ? darkThemeClassName : lightThemeClassName} />
+        </DropdownProvider>
+      </ThemeProvider>
     </StrictMode>
   );
 };
